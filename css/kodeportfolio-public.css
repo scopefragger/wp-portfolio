@@ -1,0 +1,95 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+/* ---- grid ---- */
+
+.gridPortfolio {
+    width: 100%;
+}
+
+/* clearfix */
+.gridPortfolio:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.gridPortfolio {
+    margin-top: 110px;
+}
+
+ul.kodePortfolioCat li {
+    float: left;
+    list-style: none;
+    padding: 5px;
+    text-align: center;
+}
+
+.ui-tabs.ui-tabs-vertical {
+    padding: 0;
+    width: 42em;
+}
+.ui-tabs.ui-tabs-vertical .ui-widget-header {
+    border: none;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav {
+    float: left;
+    width: 10em;
+    border-radius: 4px 0 0 4px;
+    border-right: 1px solid gray;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li {
+    clear: left;
+    width: 100%;
+    margin: 0.2em 0;
+    border: 1px solid gray;
+    border-width: 1px 0 1px 1px;
+    border-radius: 4px 0 0 4px;
+    overflow: hidden;
+    position: relative;
+    right: -2px;
+    z-index: 2;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li a {
+    display: block;
+    width: 100%;
+    padding: 0.6em 1em;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li a:hover {
+    cursor: pointer;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+    border-right: 1px solid white;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-nav li:last-child {
+    margin-bottom: 10px;
+}
+.ui-tabs.ui-tabs-vertical .ui-tabs-panel {
+    float: left;
+    width: 28em;
+    border-left: 1px solid gray;
+    border-radius: 0;
+    position: relative;
+    left: -1px;
+}
+p.submit {
+    float: none;
+    width: 100%;
+    clear: both !important;
+}
+ul.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    width: 10%;
+}
+
+.ui-widget-content {
+    width: 90% !important;
+}
+.ui-widget-content {
+    height: 100%;
+    padding: 20px;
+}

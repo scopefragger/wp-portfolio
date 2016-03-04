@@ -1,0 +1,12 @@
+{
+  "authors": [
+    {
+      "name": "Mark Jones",
+      "email": "mark@bmkdigital.co.uk",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "behat/behat": "~3.0.6"
+  }
+}
