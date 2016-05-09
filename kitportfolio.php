@@ -36,8 +36,6 @@ class Kitportfolio
     public function init()
     {
 
-
-
         /*
          * Added core debug bundle
          */
@@ -55,18 +53,16 @@ class Kitportfolio
         if (function_exists('get_option')) {
             $options = get_option('KodePortfolio_settings');
         } else {
-            $error->writeToLog('Vital Wordpress function GET_OPTIONS could not be accessed');
         }
 
         /*
          * Load in the other required classes as needed
          */
 
-        $this->fetch($error);
-
+        $this->fetch();
         $loader = new loader();
         $loader->publicLoader();
-        $short = new Short($error);
+        $short = new Short();
         $short->publicShortCode();
 
 
@@ -80,7 +76,6 @@ class Kitportfolio
         /*
          * Bunch of admin only elements
          */
-        $error->writeToLog('Test error writing');
         if (is_admin()) {
 
             /*
@@ -93,8 +88,6 @@ class Kitportfolio
                     'http://portfolio.bmkdigital.co.uk/portfolio.json',
                     __FILE__
                 );
-            } else {
-                $error->writeToLog('Could not find plugin-update-checker.php');
             }
 
 
@@ -104,14 +97,10 @@ class Kitportfolio
 
             if (file_exists(__DIR__ . '/admin/admin.php')) {
                 include_once(__DIR__ . '/admin/admin.php');
-            } else {
-                $error->writeToLog('Admin.php could not be found');
             }
 
             if (file_exists(__DIR__ . '/wsg.php')) {
                 include_once(__DIR__ . '/wsg.php');
-            } else {
-                $error->writeToLog('wsg.php could not be found');
             }
 
             if ($options['jquery'] == "yes") {
@@ -126,7 +115,7 @@ class Kitportfolio
             wp_enqueue_style('admin', get_site_url() . '/wp-content/plugins/kodeportfolio/css/AdminLTE.css');
 
 
-        }else{
+        } else {
             wp_enqueue_style('fancycss',
                 get_site_url() . '/wp-content/plugins/kodeportfolio/css/hover.css');
 
@@ -150,7 +139,6 @@ class Kitportfolio
 
             }
         }
-
 
 
     }
