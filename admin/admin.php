@@ -1,12 +1,12 @@
 <?php
-add_action('admin_menu', 'KodePortfolio_add_admin_menu');
-add_action('admin_init', 'KodePortfolio_settings_init');
+add_action('admin_menu', 'KitPortfolio_add_admin_menu');
+add_action('admin_init', 'KitPortfolio_settings_init');
 
 
-function KodePortfolio_add_admin_menu()
+function KitPortfolio_add_admin_menu()
 {
 
-    add_menu_page('KodePortfolio', 'KodePortfolio', 'manage_options', 'kodeportfolio', 'kodeportfolio_options_page');
+    add_menu_page('KitPortfolio', 'KitPortfolio', 'manage_options', 'KitPortfolio', 'KitPortfolio_options_page');
 
 }
 
@@ -26,16 +26,16 @@ function injectAdminStyles()
     return true;
 }
 
-function KodePortfolio_settings_init()
+function KitPortfolio_settings_init()
 {
 
-    register_setting('pluginPage', 'KodePortfolio_settings');
+    register_setting('pluginPage', 'KitPortfolio_settings');
 
 
 }
 
 
-function KodePortfolio_options_page()
+function KitPortfolio_options_page()
 {
 
 
@@ -43,11 +43,11 @@ function KodePortfolio_options_page()
 ";
 
 
-    $options = get_option('KodePortfolio_settings');
+    $options = get_option('KitPortfolio_settings');
     $admin = new wsg();
     $args = [
         'config' => [
-            'optionsname' => 'KodePortfolio_settings',
+            'optionsname' => 'KitPortfolio_settings',
             'debug' => 'true',
             'tabs' => 'true',
             'class' => [

@@ -32,7 +32,7 @@ class Kitportfolio
     {
 
         if (function_exists('get_option')) {
-            $options = get_option('KodePortfolio_settings');
+            $options = get_option('KitPortfolio_settings');
         } else {
         }
 
@@ -49,7 +49,7 @@ class Kitportfolio
          */
         if (file_exists(__DIR__ . '/classes/enquireHandler.php')) {
             include(__DIR__ . '/classes/enquireHandler.php');
-            $options = get_option('KodePortfolio_settings');
+            $options = get_option('KitPortfolio_settings');
             $enquirer = new EnquireHandler();
             $enquirer->enquireAll($options);
         }
@@ -70,7 +70,7 @@ class Kitportfolio
 
     function add_events_metaboxes()
     {
-        $options = get_option('KodePortfolio_settings');
+        $options = get_option('KitPortfolio_settings');
         $slug = $options['cuslug'];
         add_meta_box('wpt_events_location', 'Youtube Video ID', array($this, 'wpt_events_location'), $slug, 'side',
             'default');
@@ -200,7 +200,7 @@ class Kitportfolio
 
 }
 
-$KodePortfolio = new Kitportfolio();
-add_action('plugins_loaded', array($KodePortfolio, 'init'));
+$KitPortfolio = new Kitportfolio();
+add_action('plugins_loaded', array($KitPortfolio, 'init'));
 
 ?>

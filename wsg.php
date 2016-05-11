@@ -49,7 +49,7 @@ class wsg
     function constructTextInput($name, $class, $coreName)
     {
 
-        $options = get_option('KodePortfolio_settings');
+        $options = get_option('KitPortfolio_settings');
         $output = "";
         $output .= "<input type='text' class='' value='" . $options[$name] . "' name='" . $coreName . "[" . $name . "]'>";
         return $output;
@@ -68,7 +68,7 @@ class wsg
     function constructHiddenInput($name, $class, $corename)
     {
 
-        $options = get_option('KodePortfolio_settings');
+        $options = get_option('KitPortfolio_settings');
         $output = "";
         $output .= "<input type='hidden' class='' value='" . $options[$name] . "' name='" . $corename . "[" . $name . "]' >";
         return $output;
@@ -87,7 +87,7 @@ class wsg
     function constructColourInput($name, $class, $corename)
     {
 
-        $options = get_option('KodePortfolio_settings');
+        $options = get_option('KitPortfolio_settings');
         $output = "";
         $output .= "<input type='text' class='colourPicker' value='" . $options[$name] . "' name='" . $corename . "[" . $name . "]' >";
         return $output;
@@ -255,7 +255,7 @@ class wsg
     function constructSelectInput($class, $name, $options, $corename)
     {
 
-        $savedoptions = get_option('KodePortfolio_settings');
+        $savedoptions = get_option('KitPortfolio_settings');
         $selectedOption = $savedoptions[$name];
         $output = "";
         $output .= "<select class='" . $class . "' value=''  name='" . $corename . "[" . $name . "]' >";
@@ -282,7 +282,7 @@ class wsg
     function constructNumberInput($class, $name, $corename)
     {
 
-        $savedoptions = get_option('KodePortfolio_settings');
+        $savedoptions = get_option('KitPortfolio_settings');
         $selectedOption = $savedoptions[$name];
         $output = "";
         $output .= "<select class='" . $class . "' value=''  name='" . $corename . "[" . $name . "]' >";
@@ -306,7 +306,7 @@ class wsg
     function constructNumberBigInput($class, $name, $corename)
     {
 
-        $savedoptions = get_option('KodePortfolio_settings');
+        $savedoptions = get_option('KitPortfolio_settings');
         $selectedOption = $savedoptions[$name];
         $output = "";
         $output .= "<select class='" . $class . "' value=''  name='" . $corename . "[" . $name . "]' >";

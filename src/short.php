@@ -20,7 +20,7 @@ class Short
      */
     function publicShortCode()
     {
-        add_shortcode('kodeportfolio', array(&$this, 'displayPortfolio'));
+        add_shortcode('KitPortfolio', array(&$this, 'displayPortfolio'));
     }
 
     /**
@@ -28,7 +28,7 @@ class Short
      */
     function displayPortfolio($atts)
     {
-        $options = get_option('KodePortfolio_settings');
+        $options = get_option('KitPortfolio_settings');
         $options = $this->generateCompleateOptions($atts,$options);
         $parentCatagory = $this->generateParentCat($atts);
 

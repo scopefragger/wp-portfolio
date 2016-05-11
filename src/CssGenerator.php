@@ -17,32 +17,13 @@ class CssGenerator
     function build()
     {
 
-        /*
-         * Start Ouput Stream
-         */
-
         $output = "";
-
-        /*
-         * Get The Options
-         */
-
-        $options = get_option('KodePortfolio_settings');
-
-        /*
-         * Set Options to variables
-         */
-
+        $options = get_option('KitPortfolio_settings');
         $background = $options['background_col'];
         $borderSize = $options['tile_border_size'];
         $borderCol = $options['tile_border_col'];
         $marginButtons = $options['spaceuptop'];
         $padding = $options['tile_padding'];
-
-
-        /*
-         * Some emergency Fallbacks
-         */
 
         if ($background == "") {
             $background = "fff";
@@ -54,10 +35,6 @@ class CssGenerator
             $borderSize = "5";
         }
 
-        /*
-         * Array To Use for constructing the CSS
-         */
-
         $rows = [
             [0, 460, 100],
             [460, 968, 50],
@@ -66,9 +43,6 @@ class CssGenerator
             [1600, 6000, 16.6]
         ];
 
-        /*
-         * Build the CSS based on the Screen Sizes
-         */
         $output .= "<style>";
         $output .= $this->buildGenericCss($background, $borderSize, $borderCol, $padding, $marginButtons);
         $output .= $this->loopRowArray($rows);
@@ -78,13 +52,14 @@ class CssGenerator
     }
 
 
-    function loopRowArray($rows){
+    function loopRowArray($rows)
+    {
 
         $output = "";
 
         foreach ($rows as $row) {
 
-            $output .= $this->buildRowHandler($row[0],$row[1],$row[2]);
+            $output .= $this->buildRowHandler($row[0], $row[1], $row[2]);
 
         }
 
@@ -106,7 +81,7 @@ class CssGenerator
 
         $output = "";
         $output .= ".grid-item {";
-      //  $output .= " background: " . $background . " ;";
+        //  $output .= " background: " . $background . " ;";
         $output .= " box-sizing: " . "border-box" . " ;";
         $output .= " border: " . $borderSize . "px " . $borderCol . " solid;";
         $output .= " padding:" . $padding . "px;";
@@ -138,7 +113,6 @@ class CssGenerator
         $output .= "}
         ";
         return $output;
-
 
 
     }

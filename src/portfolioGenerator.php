@@ -21,7 +21,7 @@ class PortfolioGenerator
         if ($options['headers'] == "yes") {
             $headerColour = $options['header_colour'];
             $fontSize = $options['header_size'];
-            $savedoptions = get_option('KodePortfolio_settings');
+            $savedoptions = get_option('KitPortfolio_settings');
             $header = "<h2 style='color:" . $headerColour . "; font-size:" . $fontSize . "px; '>" . get_the_title($idthis) . "</h2>";
 
             $postUrl = "";
@@ -350,8 +350,8 @@ class PortfolioGenerator
 
             $output = "";
             $cats = $this->getListOfCat();
-            $output .= "<div class='kodePortfolioOuterCat'>";
-            $output .= "<ul class='kodePortfolioCat'>";
+            $output .= "<div class='KitPortfolioOuterCat'>";
+            $output .= "<ul class='KitPortfolioCat'>";
 
             /*
              * Hide output if overidden

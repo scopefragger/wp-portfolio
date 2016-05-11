@@ -13,7 +13,7 @@ class PortfiloCore
     {
         $siteUrl = site_url();
         $output = "";
-        wp_enqueue_script('iosJS', $siteUrl . '/wp-content/plugins/kodeportfolio/js/iso.js');
+        wp_enqueue_script('iosJS', $siteUrl . '/wp-content/plugins/KitPortfolio/js/iso.js');
         include(__DIR__ . '/portfolioGenerator.php');
         $common = new PortfolioGenerator($options);
         $output .= $common->buildCss();
