@@ -44,12 +44,27 @@ class Kitportfolio
 
         add_action('init', array($this, 'createPostTypeX'));
 
+        /**
+         * Load In the Enquirer Handler Class and do the Stiff we need to
+         */
+        if (file_exists(__DIR__ . '/classes/enquireHandler.php')) {
+            include(__DIR__ . '/classes/enquireHandler.php');
+            $options = get_option('KodePortfolio_settings');
+            $enquirer = new EnquireHandler();
+            $enquirer->enquireAll($options);
+        }
+
+        /**
+         * Handel Admin Users logged in to the back end
+         */
         if (is_admin()) {
             if (file_exists(__DIR__ . '/classes/adminHandler.php')) {
                 include(__DIR__ . '/classes/adminHandler.php');
                 $admin = new AdminHandler();
             }
         }
+
+
     }
 
 
