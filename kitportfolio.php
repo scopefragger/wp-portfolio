@@ -45,31 +45,14 @@ class Kitportfolio
         add_action('init', array($this, 'createPostTypeX'));
 
         if (is_admin()) {
-            if (file_exists(__DIR__ . '/plugin-updates/plugin-update-checker.php')) {
-                include(__DIR__ . '/plugin-updates/plugin-update-checker.php');
-                $ExampleUpdateChecker = \PucFactory::buildUpdateChecker(
-                    'http://portfolio.bmkdigital.co.uk/portfolio.json',
-                    __FILE__
-                );
-            }
-            if (file_exists(__DIR__ . '/admin/admin.php')) {
-                include_once(__DIR__ . '/admin/admin.php');
+
+
+            if (file_exists(__DIR__ . '/classes/adminHandler.php')) {
+                include(__DIR__ . '/classes/adminHandler.php');
+                $admin = new AdminHandler();
             }
 
-            if (file_exists(__DIR__ . '/wsg.php')) {
-                include_once(__DIR__ . '/wsg.php');
-            }
 
-            if ($options['jquery'] == "yes") {
-                wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-1.11.3.min.js');
-            }
-            if ($options['jqueryui'] == "yes") {
-                wp_enqueue_script('jqueryui', 'http://code.jquery.com/ui/1.9.1/jquery-ui.js', array('jquery'));
-            }
-            wp_enqueue_script('sideTabs', get_site_url() . '/wp-content/plugins/kodeportfolio/js/common.js');
-            wp_enqueue_script('spec', get_site_url() . '/wp-content/plugins/kodeportfolio/js/spec.js');
-            wp_enqueue_style('fancycss', get_site_url() . '/wp-content/plugins/kodeportfolio/css/spec.css');
-            wp_enqueue_style('admin', get_site_url() . '/wp-content/plugins/kodeportfolio/css/AdminLTE.css');
 
 
         } else {
@@ -77,24 +60,6 @@ class Kitportfolio
                 get_site_url() . '/wp-content/plugins/kodeportfolio/css/hover.css');
 
 
-        }
-
-
-        if ($options['enablelightbox'] == 'yes') {
-            if ($options['lightboxmode'] == 'fancybox') {
-                wp_enqueue_script('fancybox',
-                    get_site_url() . '/wp-content/plugins/kodeportfolio/fancybox/jquery.fancybox-1.3.4.pack.js',
-                    array('jquery'));
-                wp_enqueue_style('fancycss',
-                    get_site_url() . '/wp-content/plugins/kodeportfolio/fancybox/jquery.fancybox-1.3.4.css');
-
-                wp_enqueue_script(
-                    'gofancybox',
-                    get_site_url() . '/wp-content/plugins/kodeportfolio/fancybox/gofancy.js',
-                    array('fancybox')
-                );
-
-            }
         }
 
 
