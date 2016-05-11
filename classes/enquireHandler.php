@@ -3,7 +3,7 @@
 
 class EnquireHandler
 {
-    function enquireAll($options)
+    function enquireAll($options = null)
     {
 
     }
@@ -31,7 +31,7 @@ class EnquireHandler
 
     }
 
-    function enquireAdmin($options)
+    function enquireAdmin()
     {
 
         wp_enqueue_script('sideTabs', get_site_url() . '/wp-content/plugins/kodeportfolio/js/common.js');
