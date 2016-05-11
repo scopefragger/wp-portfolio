@@ -6,6 +6,9 @@ class EnquireHandler
     function enquireAll($options = null)
     {
 
+        $this->enquireHoverCss();
+        $this->enquireFancyBox($options);
+
     }
 
     function enquireFancyBox($options)
@@ -38,6 +41,12 @@ class EnquireHandler
         wp_enqueue_script('spec', get_site_url() . '/wp-content/plugins/kodeportfolio/js/spec.js');
         wp_enqueue_style('fancycss', get_site_url() . '/wp-content/plugins/kodeportfolio/css/spec.css');
         wp_enqueue_style('admin', get_site_url() . '/wp-content/plugins/kodeportfolio/css/AdminLTE.css');
+    }
+
+    function enquireHoverCss(){
+        wp_enqueue_style('fancycss',
+            get_site_url() . '/wp-content/plugins/kodeportfolio/css/hover.css');
+
     }
 
 }

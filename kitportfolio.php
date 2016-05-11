@@ -45,26 +45,12 @@ class Kitportfolio
         add_action('init', array($this, 'createPostTypeX'));
 
         if (is_admin()) {
-
-
             if (file_exists(__DIR__ . '/classes/adminHandler.php')) {
                 include(__DIR__ . '/classes/adminHandler.php');
                 $admin = new AdminHandler();
             }
-
-
-
-
-        } else {
-            wp_enqueue_style('fancycss',
-                get_site_url() . '/wp-content/plugins/kodeportfolio/css/hover.css');
-
-
         }
-
-
     }
-
 
 
     function add_events_metaboxes()
