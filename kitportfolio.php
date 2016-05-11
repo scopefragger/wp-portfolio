@@ -29,35 +29,13 @@ License:
 class Kitportfolio
 {
 
-
-    /**
-     *
-     */
     public function init()
     {
-
-        /*
-         * Added core debug bundle
-         */
-
-        if (!empty($_REQUEST['dev']) && $_REQUEST['dev'] == true) {
-            error_reporting(E_ALL);
-            ini_set('display_errors', '1');
-        }
-
-
-        /*
-         * Get the plugin options
-         */
 
         if (function_exists('get_option')) {
             $options = get_option('KodePortfolio_settings');
         } else {
         }
-
-        /*
-         * Load in the other required classes as needed
-         */
 
         $this->fetch();
         $loader = new loader();
@@ -65,23 +43,9 @@ class Kitportfolio
         $short = new Short();
         $short->publicShortCode();
 
-
-        /*
-         * Creates the Post Type Options in the admin
-         */
-
         add_action('init', array($this, 'createPostTypeX'));
 
-
-        /*
-         * Bunch of admin only elements
-         */
         if (is_admin()) {
-
-            /*
-             * Load the plugin updater
-             */
-
             if (file_exists(__DIR__ . '/plugin-updates/plugin-update-checker.php')) {
                 include(__DIR__ . '/plugin-updates/plugin-update-checker.php');
                 $ExampleUpdateChecker = \PucFactory::buildUpdateChecker(
@@ -89,12 +53,6 @@ class Kitportfolio
                     __FILE__
                 );
             }
-
-
-            /*
-             * Load in the admin settings page
-             */
-
             if (file_exists(__DIR__ . '/admin/admin.php')) {
                 include_once(__DIR__ . '/admin/admin.php');
             }
@@ -143,47 +101,7 @@ class Kitportfolio
 
     }
 
-    function createPostTypeX()
-    {
 
-
-        $options = get_option('KodePortfolio_settings');
-        $slug = $options['cuslug'];
-        $name = $options['cunume'];
-        if ($options['custom_post_type'] == "yes") {
-            register_post_type($slug,
-                array(
-                    'labels' => array(
-                        'name' => '' . $name . 's',
-                        'singular_name' => '' . $name . '',
-                        'add_new' => 'Add New',
-                        'add_new_item' => 'Add New ' . $name . '',
-                        'edit' => 'Edit',
-                        'edit_item' => 'Edit ' . $name . '',
-                        'new_item' => 'New ' . $name . '',
-                        'view' => 'View',
-                        'view_item' => 'View ' . $name . '',
-                        'search_items' => 'Search ' . $name . 's',
-                        'not_found' => 'No ' . $name . 's found',
-                        'not_found_in_trash' => 'No ' . $name . 's found in Trash',
-                        'parent' => 'Parent ' . $name . ''
-                    ),
-                    'rewrite' => array('slug' => $slug, 'with_front' => false),
-                    'public' => true,
-                    'capability_type' => 'post',
-                    'hierarchical' => false,
-                    'menu_position' => 15,
-                    'supports' => array('title', 'editor', 'comments', 'thumbnail', 'custom-fields'),
-                    'taxonomies' => array('category'),
-                    'menu_icon' => plugins_url('images/image.png', __FILE__),
-                    'has_archive' => true
-                )
-            );
-            flush_rewrite_rules();
-            add_action('add_meta_boxes', array($this, 'add_events_metaboxes'));
-            add_action('save_post', array($this, 'wpt_save_events_meta'), 1, 2);
-        }
-    }
 
     function add_events_metaboxes()
     {
