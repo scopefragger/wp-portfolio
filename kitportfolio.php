@@ -1,15 +1,14 @@
 <?php
 
 /*
-Plugin Name: Kode Portfolio
-Plugin URI: http://kodedigital.co.uk
+Plugin Name: Kit Portfolio
 Description:
 Version: 2.1.1
 Author: Mark A Jones
-Author Email: mark@bmkdigital.co.uk
+Author Email: Mark@kitkode.co.uk
 License:
 
-  Copyright 2011 Mark A Jones (mark@bmkdigital.co.uk)
+  Copyright 2016 Mark A Jones
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 2, as
